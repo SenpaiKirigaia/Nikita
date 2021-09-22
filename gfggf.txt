@@ -1,0 +1,213 @@
+3
+import turtle
+
+turtle.shape('turtle')
+for i in range(1, 72):
+    turtle.forward(10)
+    turtle.left(5)
+ ————
+4
+Import turtle
+
+for i in range(4):
+    turtle.forward(90)
+    turtle.left(90)
+—————-
+5
+import turtle
+
+for i in range (10):
+    turtle.penup()
+    turtle.backward(10)
+    turtle.left(90)
+    turtle.backward(10)
+    turtle.right(90)
+    turtle.pendown()
+    for j in range(4):
+        turtle.forward(10 + i * 20)
+        turtle.left(90)
+—————
+6
+import turtle
+
+n = int(input('Введите число лапок '))
+for i in range(n):
+    turtle.forward(150)
+    turtle.stamp()
+    turtle.backward(150)
+    turtle.left(360 / n)
+—————
+7
+import turtle
+
+turtle.shape('turtle')
+for i in range(30):
+    for j in range(6):
+        turtle.forward(1 + i)
+        turtle.left(15)
+—————
+8
+import turtle
+
+turtle.shape('turtle')
+for i in range(30):
+    turtle.forward(25 + 3 * i)
+    turtle.left(90)
+——————
+9
+import turtle
+
+def ris(n):
+    turtle.shape('turtle')
+    a = (n-2) * 180 / n
+    turtle.left(180 - a / 2)
+    turtle.forward(20 + n * 8)
+    for i in range(n - 1):
+        turtle.left(180 - a)
+        turtle.forward(20 + n * 8)
+    turtle.right(a / 2)
+    turtle.penup()
+    turtle.forward(10)
+    turtle.pendown()
+
+for i in range(3, 13):
+    ris(i)
+
+————
+10
+import turtle
+
+def circle(n):
+    turtle.shape('turtle')
+    for i in range(1, 19):
+        turtle.forward(10)
+        turtle.left(20)
+    turtle.forward(10)
+    turtle.left(180)
+    for i in range(1, 19):
+        turtle.forward(10)
+        turtle.left(20)
+
+def lepest(n):
+    for i in range(n // 2):
+        circle(n)
+        turtle.left(360 / n)
+
+n = int(input('Сколько лепестков? '))
+lepest(n)
+————
+11
+import turtle
+
+def circle(n, j):
+    turtle.shape('turtle')
+    for i in range(1, 19):
+        turtle.forward(10 + j * 3)
+        turtle.left(20)
+    turtle.forward(10+ j * 3)
+    turtle.left(180)
+    for i in range(1, 19):
+        turtle.forward(10 + 3 * j)
+        turtle.left(20)
+
+def lepest(n):
+    for j in range(n):
+        circle(n, j)
+
+n = int(input('Сколько крыльев? '))
+lepest(n)
+——————
+12
+import turtle
+
+def circle(n):
+    turtle.shape('turtle')
+    for i in range(1, 10):
+        turtle.forward(20)
+        turtle.left(20)
+    turtle.forward(20)
+    for i in range(1, 10):
+        turtle.forward(2)
+        turtle.left(20)
+
+def lepest(n):
+    for j in range(n):
+        circle(n)
+
+n = int(input('Сколько дуг? '))
+turtle.penup()
+turtle.forward(200)
+turtle.left(90)
+turtle.pendown()
+lepest(n)
+————
+13
+import turtle
+
+def picture(f, l):
+    for i in range(f):
+        turtle.forward(l)
+        turtle.left(10)
+    turtle.forward(l)
+    turtle.end_fill()
+
+def circle(f, l, color, n):
+    turtle.shape('turtle')
+    turtle.pendown()
+    turtle.fillcolor(color)
+    if n == 1:
+        turtle.begin_fill()
+    if f == 36:
+        picture(36, l)
+    else:
+        picture(18, l)
+    turtle.penup()
+
+
+circle(36, 20, "yellow", 1)
+turtle.goto(-30, 180)
+turtle.left(180)
+circle(36, 3, "blue", 1)
+turtle.goto(50, 180)
+circle(36, 3, "blue", 1)
+turtle.left(90)
+turtle.goto(10, 150)
+turtle.fillcolor("black")
+turtle.pendown()
+turtle.width(10)
+turtle.forward(50)
+turtle.penup()
+turtle.forward(60)
+turtle.goto(-50, 100)
+turtle.pencolor("red")
+circle(18, 10, "red", 0)
+————————
+14
+
+import turtle as t
+
+def line2(a, i):
+    if i == 0:
+        t.right(a)
+    else:
+        t.left(180 - a)
+    t.forward(100)
+
+def line(n, i):
+    a = 180 / n
+    if i == 0:
+        b = a / 2
+        line2(b, i)
+    else:
+        line2(a, i)
+
+n = 0
+n = int(input('Сколько вершин? '))
+while n % 2 == 0:
+    n = int(input('Вы ввели четное число, введите, пожалуйста, нечетное число '))
+t.penup()
+t.goto(0, 200)
+t.pendown()
+t.right(90)
+for i in range(n):
+    line(n, i)
