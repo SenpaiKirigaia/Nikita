@@ -1,0 +1,106 @@
+БЕШЕНАЯ МУХА
+import turtle as t
+from random import *
+
+def rand(a, b):
+    x = randint(a, b)
+    y = randint(0, 180)
+    t.forward(x)
+    t.left(y)
+
+a = 20
+b = 60
+for i in range(50):
+    rand(a, b)
+———————
+ЦИФРЫ
+import turtle as t
+
+def do(digit, number):
+    x = 40
+    t.penup()
+    t.goto(digit[0][0] + number * x, digit[0][1])
+    t.pendown()
+    for point in digit:
+        t.goto(point[0] + number*x, point[1])
+
+A1 = [0, 0]
+A2 = [30, 0]
+A3 = [0, 30]
+A4 = [30, 30]
+A5 = [0, 60]
+A6 = [30, 60]
+zero = (A1, A2, A6, A5, A1)
+one = (A3, A6, A2)
+two = (A2, A1, A4, A6, A5)
+three = (A5, A6, A3, A4, A1)
+four = (A2, A4, A6, A4, A3, A5)
+five = (A1, A2, A4, A3, A5, A6)
+six = (A3, A4, A2, A1, A3, A6)
+seven = (A1, A3, A6, A5)
+eight = (A1, A2, A4, A3, A1, A5, A6, A2)
+nine = (A1, A4, A6, A5, A3, A4)
+do(one, -4)
+do(four, -3)
+do(one, -2)
+do(seven, -1)
+do(zero, 0)
+do(zero, 1)
+—————
+БАЛЛИСТИКА
+import turtle as t
+import numpy as np
+
+t.shape('turtle')
+vx = 15
+vy = 65
+g = 10
+n = 0
+t.goto(300, 0)
+t.goto(-350, 0)
+for i in np.arange(0, 45, 0.03):
+    x = vx * i
+    y = vy * (i - n) - 0.5 * g * (i - n) ** 2
+    t.goto(x - 350, y)
+    if y < 0:
+        n = i
+        vy = vy * 0.8
+——————
+ИДЕАЛЬНЫЙ ГАЗ
+from random import randint
+import turtle
+
+def square(x):
+    unit.penup()
+    unit.goto(x, -y)
+    unit.pendown()
+    for i in range(4):
+        unit.left(90)
+        unit.forward(x * 2)
+
+number_of_turtles = 30
+steps_of_time_number = 300
+x = 300
+y = 300
+
+pool = [turtle.Turtle(shape='turtle') for i in range(number_of_turtles)]
+i = 0
+for unit in pool:
+    if i == 0:
+        square(x)
+    unit.penup()
+    unit.speed(50)
+    unit.goto(randint(-x, x), randint(-y, y))
+    unit.left(randint(0, 360))
+    i = 1
+
+
+for i in range(steps_of_time_number):
+    for unit in pool:
+        unit.forward(5)
+        if unit.xcor() < -x or unit.xcor() > x:
+            a = unit.heading()
+            unit.right(180 + 2 * a)
+        if unit.ycor() < -y or unit.ycor() > y:
+            a = unit.heading()
+            unit.right(2 * a)
